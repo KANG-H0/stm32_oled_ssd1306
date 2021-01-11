@@ -17,5 +17,5 @@
 > 软件I2C
 > - 基于HAL库 `software_i2c.h` 中更改相关GPIO端口和引脚即可
 > - 默认使用GPIOG端口，可在 `Software_I2C/software_i2c.h` 中更改相关GPIO引脚
-> PG13 ------> Software_I2C_SCL
+> PG13 ------> Software_I2C_SCL 
 > PG14 ------> Software_I2C_SDA 
