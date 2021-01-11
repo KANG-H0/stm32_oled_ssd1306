@@ -19,3 +19,58 @@
 > - 默认使用GPIOG端口，可在 `Software_I2C/software_i2c.h` 中更改相关GPIO引脚
 > PG13 ------> Software_I2C_SCL 
 > PG14 ------> Software_I2C_SDA 
+---
+> main
+> ```C
+> int main(void)
+>{
+>  /* USER CODE BEGIN 1 */
+>
+>  /* USER CODE END 1 */
+>
+>  /* MCU Configuration--------------------------------------------------------*/
+>
+>  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+>  HAL_Init();
+>
+>  /* USER CODE BEGIN Init */
+>
+>  /* USER CODE END Init */
+>
+>  /* Configure the system clock */
+>  SystemClock_Config();
+>
+>  /* USER CODE BEGIN SysInit */
+>
+>  /* USER CODE END SysInit */
+>
+>  /* Initialize all configured peripherals */
+>  MX_GPIO_Init();
+>  MX_I2C1_Init();
+>  MX_USART1_UART_Init();
+>  /* USER CODE BEGIN 2 */
+>
+>  OLED_Init();
+>  OLED_ShowChar(0, 0, 'A', FontSize8x16, 1);
+>  OLED_ShowStr(0, 2, (uint8_t *)"123abc!@#$^", FontSize6x8, 0);
+>  OLED_ShowCN(0, 6, 1, 1);
+>  OLED_LocalFill(70, 3, 80, 4, Bright);
+>  // OLED_ShowBMP(0, 0, 127, 7, (uint8_t *)TestBMP);
+>
+>  /* USER CODE END 2 */
+>
+>  /* Infinite loop */
+>  /* USER CODE BEGIN WHILE */
+>  while (1)
+>  {
+>    /* USER CODE END WHILE */
+>
+>    /* USER CODE BEGIN 3 */
+>    HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
+>    HAL_Delay(500);
+>    HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+>    HAL_Delay(500);
+>  }
+>  /* USER CODE END 3 */
+>}
+>```
